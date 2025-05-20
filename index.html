@@ -34,13 +34,20 @@
 				<!-- Intro -->
 					<section id="intro" class="wrapper style1 fullscreen fade-up">
 						<div class="inner">
-							<img src="images/baby.png" alt="Toaster" width="200" height="200" style="border-radius: 50%;">
-							<h1><u>Toaster-Project</u></h1>
-							<p> <strong> Hi there. 👋 </strong><br/>
-							I am Toaster.</p><br/>
-							<ul class="actions">
-								<li><a href="#one" class="button scrolly">Learn more</a></li>
-							</ul>
+<div class="intro-flex">
+  <img src="images/baby.png" alt="Toaster" width="200" height="200" class="intro-img">
+  <div class="intro-text">
+	<h1><u>Toaster-Project</u></h1>
+	<div class="fade-line"></div>
+	<p> <strong> Hi there. 👋 </strong><br/>
+	I am <strong>Toaster</strong> – a graduating student in Information Technology, I play video games; mostly rhythm games, 
+	and I am probably weird. I am still learning even to this day 
+	and I'm looking forward to gaining more valuable knowledge.</p><br/>
+	<ul class="actions">
+	  <li><a href="#one" class="button scrolly">Learn more</a></li>
+	</ul>
+  </div>
+</div>
 						</div>
 					</section>
 
@@ -191,9 +198,9 @@
 		<!-- Footer -->
 			<footer id="footer" class="wrapper style1-alt">
 				<div class="inner">
-					<ul class="menu">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
+						<ul class="menu">
+							<li>&copy; 2025 <a href="#intro" id="footer-toaster-link">Toaster-Project</a>. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
 				</div>
 			</footer>
 
@@ -204,7 +211,30 @@
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+// Footer hover and click effect for Toaster-Project
+document.addEventListener('DOMContentLoaded', function() {
+  var toasterLink = document.getElementById('footer-toaster-link');
+  if (toasterLink) {
+	toasterLink.addEventListener('mouseenter', function() {
+	  toasterLink.classList.add('footer-hover');
+	});
+	toasterLink.addEventListener('mouseleave', function() {
+	  toasterLink.classList.remove('footer-hover');
+	});
+	toasterLink.addEventListener('click', function(e) {
+	  e.preventDefault();
+	  var intro = document.getElementById('intro');
+	  if (intro) {
+		intro.scrollIntoView({ behavior: 'smooth' });
+	  } else {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	  }
+	});
+  }
+});
+</script>
 
 	</body>
 </html>
