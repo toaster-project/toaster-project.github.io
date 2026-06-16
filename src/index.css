@@ -1,0 +1,199 @@
+/* ===== CSS Reset ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Design Tokens ===== */
+:root {
+  /* Colors - Deep space dark theme */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-tertiary: #1a1a2e;
+  --bg-card: rgba(22, 22, 35, 0.7);
+  --bg-glass: rgba(255, 255, 255, 0.03);
+  --bg-glass-hover: rgba(255, 255, 255, 0.06);
+  
+  /* Accent - Purple/Violet gradient palette */
+  --accent-primary: #7c3aed;
+  --accent-secondary: #a855f7;
+  --accent-tertiary: #c084fc;
+  --accent-gradient: linear-gradient(135deg, #7c3aed, #a855f7, #06b6d4);
+  --accent-gradient-hover: linear-gradient(135deg, #6d28d9, #9333ea, #0891b2);
+  --accent-glow: rgba(124, 58, 237, 0.4);
+  --accent-cyan: #06b6d4;
+  --accent-pink: #ec4899;
+  
+  /* Text */
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --text-accent: #c084fc;
+  
+  /* Borders */
+  --border-color: rgba(255, 255, 255, 0.06);
+  --border-color-hover: rgba(255, 255, 255, 0.12);
+  --border-accent: rgba(124, 58, 237, 0.3);
+  
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 30px var(--accent-glow);
+  --shadow-glow-lg: 0 0 60px var(--accent-glow);
+  
+  /* Z-indexes */
+  --z-navbar: 1000;
+  --z-modal: 2000;
+}
+
+/* ===== Base Styles ===== */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ===== Typography ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); }
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+a {
+  color: var(--text-accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-secondary);
+}
+
+/* ===== Utility Classes ===== */
+.glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+}
+
+.gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* ===== Selection ===== */
+::selection {
+  background: var(--accent-primary);
+  color: white;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px var(--accent-glow); }
+  50% { box-shadow: 0 0 40px var(--accent-glow), 0 0 60px rgba(124, 58, 237, 0.2); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}

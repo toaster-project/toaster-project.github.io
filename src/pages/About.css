@@ -1,0 +1,213 @@
+.about-page {
+  padding-top: 60px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Hero ===== */
+.about-hero {
+  padding: var(--space-xl) 0 var(--space-md);
+  text-align: center;
+}
+
+.about-hero__label {
+  font-family: var(--font-mono);
+  color: var(--text-accent);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-sm);
+}
+
+.about-hero__title {
+  margin-bottom: var(--space-sm);
+  font-size: 2.2rem;
+}
+
+.about-hero__subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===== Content ===== */
+.about-content {
+  padding: var(--space-md) 0 var(--space-xl);
+  flex: 1;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.about-layout.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-layout__left,
+.about-layout__right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  min-width: 0; /* Prevents CSS Grid blowout */
+}
+
+.about-section__title {
+  font-size: 1.3rem;
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.about-section__title::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 3px;
+  background: var(--accent-gradient);
+  border-radius: var(--radius-full);
+}
+
+.about-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.about-card strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.marquee-card {
+  padding: var(--space-md) 0;
+  overflow: hidden;
+}
+
+.about-stats-container {
+  margin-top: var(--space-4xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* ===== Stats ===== */
+.stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-lg);
+  width: 100%;
+}
+
+.stat-card {
+  flex: 1;
+  min-width: 160px;
+  max-width: 250px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  text-align: center;
+  transition: transform var(--transition-base), border-color var(--transition-base);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-accent);
+}
+
+.stat-card__value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: var(--space-xs);
+  font-family: var(--font-mono);
+}
+
+.stat-card__label {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+}
+
+/* ===== Proficiency Bars ===== */
+.proficiency-bars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.proficiency-bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.proficiency-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.proficiency-bar-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.proficiency-bar-level {
+  color: var(--text-accent);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.proficiency-bar-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.proficiency-bar-fill {
+  height: 100%;
+  background: var(--accent-gradient);
+  border-radius: var(--radius-full);
+  width: 0;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-layout.visible .proficiency-bar-fill {
+  /* Width is set inline, this just ensures the animation triggers when parent becomes visible */
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-3xl);
+  }
+}
